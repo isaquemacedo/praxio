@@ -1,3 +1,25 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <form [formGroup]="group" class="wrapper">
+    <h2 class="title">Entrar {{email.errors?.emailValidator}}</h2>
+
+    <div class="login">
+      <div class="group">
+        <input type="text" name="email" formControlName="email">
+        
+        <div [hidden]="email.errors && !sendForm" class="errors">
+          <div class="error" [hidden]="!email.errors?.required">Digite seu e-mail</div>
+          <div class="error" [hidden]="!email.errors?.emailInvalid">E-mail inválido</div>
+        </div>
+      </div>
+      <div class="group">
+        <input type="text" name="password" formControlName="password">
+
+        <div [hidden]="password.errors && !sendForm" class="errors">
+          <div class="error" [hidden]="!password.errors?.required">Digite sua senha</div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" (click)="login()">Entrar</button>
+  </form>
+</div>

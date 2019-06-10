@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    
+    .wrapper {
+        width: 310px;
+        height: 373px;
+        
+        .title {
+            font-family: 'Open Sans', sans-serif;
+            color: #585859;
+            font-size: 29px;
+            margin: 0;
+        }
+    }
+}
