@@ -1,4 +1,4 @@
-import { ValidatorFn, AbstractControl, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 export class EmailValidator {
     public static emailValidator(email: FormControl): {[key: string]: any} {

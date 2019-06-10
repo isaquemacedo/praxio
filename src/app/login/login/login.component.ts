@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { LoginModel } from './login.model';
 import { FormGroup } from '@angular/forms';
 
@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
   loginModel: LoginModel = new LoginModel()
   sendForm: boolean = false
 
+  @ViewChild("psw", {static: true}) psw: ElementRef;
+  private isPsw: boolean = true
+
   constructor() { 
     this.group = this.loginModel.group()
   }
@@ -25,5 +28,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.sendForm = true
+  }
+
+  showHideEyes() {
+    if (this.isPsw) this.psw.nativeElement.setAttribute('type', 'text')
+    else this.psw.nativeElement.setAttribute('type', 'password')
+    this.isPsw = !this.isPsw
   }
 }

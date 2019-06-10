@@ -15,5 +15,47 @@
             font-size: 29px;
             margin: 0;
         }
+
+        .login {
+            .group {
+                display: block;
+                padding: 10px 0;
+                width: 100%;
+                position: relative;
+
+                .group-input {
+                    width: 100%;
+                    padding: 6px;
+                    border: 1px solid #C2C2C2;
+                    border-radius: 6px;
+                    box-sizing: border-box;
+                }
+
+                .eye {
+                    position: absolute;
+                    top: -83px;
+                    right: -80px;
+                    margin: 100px;
+                    width: 13px;
+                    height: 13px;
+                    border: solid 1px #C2C2C2;
+                    border-radius:  75% 15%;
+                    transform: rotate(45deg);
+                    cursor: pointer;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        border: solid 1px #C2C2C2;
+                        border-radius: 50%;
+                        left: 3px;
+                        top: 3px;
+                    }
+                }
+            }
+        }
     }
 }
