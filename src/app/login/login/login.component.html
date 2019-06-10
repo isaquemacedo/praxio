@@ -21,6 +21,11 @@
       </div>
     </div>
 
-    <button type="button" (click)="login()">Entrar</button>
+    <a routerLink="/login/recover" class="recover-password">
+      ESQUECEU A SENHA?
+    </a>
+
+    <button class="btn-login" type="button" (click)="login()">Entrar</button>
+    <a class="create-account" routerLink="/register">Não tem uma conta? Cadastre-se</a>
   </form>
 </div>
