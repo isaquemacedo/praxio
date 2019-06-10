@@ -1,3 +1,88 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <form [formGroup]="group" class="wrapper">
+    <h2 class="title">Cadastrar</h2>
+
+    <div class="register">
+      <div class="group-infos">
+        <h3 class="sub-title">Informações Pessoais</h3>
+        <div class="group">
+          <input class="group-input" placeholder="Nome/Razão Social" type="text" name="name" formControlName="name">
+
+          <div [hidden]="!name.errors || !sendForm" class="errors">
+            <div class="error" [hidden]="!name.errors?.required">Nome obrigatório</div>
+          </div>
+        </div>
+        <div class="group-container">
+          <div class="group cpf">
+            <input class="group-input" placeholder="CPF" type="text" name="cpf" formControlName="cpf" mask="000.000.000-00">
+
+            <div [hidden]="!cpf.errors || !sendForm" class="errors">
+              <div class="error" [hidden]="!cpf.errors?.required">Cpf obrigatório</div>
+            </div>
+          </div>
+          <div class="group phone">
+            <input class="group-input" placeholder="Telefone" type="text" name="phone" formControlName="phone" mask="(00) 0000-0000">
+
+            <div [hidden]="!phone.errors || !sendForm" class="errors">
+              <div class="error" [hidden]="!phone.errors?.required">Telefone obrigatório</div>
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <input class="group-input" placeholder="E-mail" type="text" name="email" formControlName="email">
+
+          <div [hidden]="!email.errors || !sendForm" class="errors">
+            <div class="error" [hidden]="!email.errors?.required">E-mail obrigatório</div>
+            <div class="error" [hidden]="!email.errors?.emailInvalid">E-mail inválido</div>
+          </div>
+        </div>
+        <div class="group">
+          <input class="group-input" placeholder="Senha" type="password" name="password" formControlName="password" #psw>
+          <div class="eye" (click)="showHideEyes()"></div>
+
+          <div [hidden]="!password.errors || !sendForm" class="errors">
+            <div class="error" [hidden]="!password.errors?.required">Senha obrigatória</div>
+          </div>
+        </div>
+      </div>
+      <div class="group-infos">
+        <h3 class="sub-title">Endereço</h3>
+        <div class="group-container">
+          <div class="group cep">
+            <input class="group-input" placeholder="CEP" type="text" name="cep" formControlName="cep" mask="00000-000">
+
+            <div [hidden]="!cep.errors || !sendForm" class="errors">
+              <div class="error" [hidden]="!cep.errors?.required">CEP obrigatório</div>
+            </div>
+          </div>
+          <div class="group addres">
+            <input class="group-input" placeholder="Logradouro" type="text" name="addres" formControlName="addres">
+
+            <div [hidden]="!addres.errors || !sendForm" class="errors">
+              <div class="error" [hidden]="!addres.errors?.required">Logradouro obrigatório</div>
+            </div>
+          </div>
+        </div>
+        <div class="group-container">
+          <div class="group number">
+            <input class="group-input" placeholder="Numero" type="text" name="number" formControlName="number">
+
+            <div [hidden]="!number.errors || !sendForm" class="errors">
+              <div class="error" [hidden]="!number.errors?.required">Número obrigatório</div>
+            </div>
+          </div>
+          <div class="group neighborhood">
+            <input class="group-input" placeholder="Bairro" type="text" name="neighborhood" formControlName="neighborhood">
+
+            <div [hidden]="!neighborhood.errors || !sendForm" class="errors">
+              <div class="error" [hidden]="!neighborhood.errors?.required">Bairro obrigatório</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-register" type="button" (click)="register()">Cadastrar</button>
+    <a routerLink="/login" class="goLogin">Já tem uma conta? Faça login</a>
+  </form>
+</div>

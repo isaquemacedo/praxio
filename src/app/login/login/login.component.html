@@ -1,12 +1,12 @@
 <div class="container">
   <form [formGroup]="group" class="wrapper">
-    <h2 class="title">Entrar {{email.errors?.emailValidator}}</h2>
+    <h2 class="title">Entrar</h2>
 
     <div class="login">
       <div class="group">
         <input class="group-input" type="text" name="email" formControlName="email">
         
-        <div [hidden]="email.errors && !sendForm" class="errors">
+        <div [hidden]="!email.errors || !sendForm" class="errors">
           <div class="error" [hidden]="!email.errors?.required">Digite seu e-mail</div>
           <div class="error" [hidden]="!email.errors?.emailInvalid">E-mail inválido</div>
         </div>
@@ -15,7 +15,7 @@
         <input class="group-input" type="password" name="password" formControlName="password" #psw>
         <div class="eye" (click)="showHideEyes()"></div>
 
-        <div [hidden]="password.errors && !sendForm" class="errors">
+        <div [hidden]="!password.errors || !sendForm" class="errors">
           <div class="error" [hidden]="!password.errors?.required">Digite sua senha</div>
         </div>
       </div>
