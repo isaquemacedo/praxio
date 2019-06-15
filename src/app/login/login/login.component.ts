@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       this.loginModel = new LoginModel(this.email.value, this.password.value)
 
       this.loginService.login(this.loginModel).subscribe(
-        resp => { console.log('logado') }
+        resp => { console.log(resp) }
       )
     }
 

@@ -1,7 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { EmailValidator } from '../validators/email.validator';
+import { EmailValidator } from 'src/app/validators/email.validator';
 
-export class RegisterModel {
+export class RegisterGroupModel {
     form: FormGroup
 
     constructor() {

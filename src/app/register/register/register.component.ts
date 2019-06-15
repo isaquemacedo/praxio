@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { RegisterModel } from './register.model';
+import { RegisterGroupModel } from '../model/register-group.model';
+import { RegisterService } from '../service/register.service';
+import { RegisterModel } from '../model/register.model';
 
 @Component({
   selector: 'praxio-register',
@@ -10,13 +12,14 @@ import { RegisterModel } from './register.model';
 export class RegisterComponent implements OnInit {
 
   group: FormGroup
-  registerModel: RegisterModel = new RegisterModel()
+  registerGroupModel: RegisterGroupModel = new RegisterGroupModel()
   sendForm: boolean = false
+  registerModel: RegisterModel
 
   @ViewChild("psw", {static: true}) psw: ElementRef;
   private isPsw: boolean = true
 
-  constructor() { this.group = this.registerModel.group() }
+  constructor(private registerService: RegisterService) { this.group = this.registerGroupModel.group() }
 
   ngOnInit() {
   }
@@ -33,6 +36,17 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.sendForm = true
+
+    if (this.group.valid) {
+      this.registerModel = new RegisterModel(this.name.value, this.cpf.value, this.phone.value, this.email.value, 
+        this.password.value, this.cep.value, this.addres.value, this.number.value, this.neighborhood.value)
+
+      this.registerService.send(this.registerModel).subscribe(
+        resp => {
+          console.log(resp)
+        }
+      )
+    }
   }
 
   showHideEyes() {

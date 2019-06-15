@@ -5,4 +5,5 @@ export class AppSettings {
 
     static BASE = environment.origin;
     static login = `${environment.praxio}/Authorization/RequestToken`
+    static register = `${environment.praxio}/Usuario`
 }
