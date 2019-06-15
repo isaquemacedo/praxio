@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginRoutingModule } from './login.routing';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginService } from './service/login.service';
 
 @NgModule({
   declarations: [LoginComponent, RecoverPasswordComponent],
@@ -12,6 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ ]
+  providers: [ LoginService ]
 })
 export class LoginModule { }

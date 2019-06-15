@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { LoginModel } from './login.model';
+import { LoginFormGroup } from '../model/login-group.model';
 import { FormGroup } from '@angular/forms';
+import { LoginModel } from '../model/login.model';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'praxio-login',
@@ -10,14 +12,15 @@ import { FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   group: FormGroup
-  loginModel: LoginModel = new LoginModel()
+  loginFormGroup: LoginFormGroup = new LoginFormGroup()
   sendForm: boolean = false
+  loginModel: LoginModel
 
   @ViewChild("psw", {static: true}) psw: ElementRef;
   private isPsw: boolean = true
 
-  constructor() { 
-    this.group = this.loginModel.group()
+  constructor(private loginService: LoginService) { 
+    this.group = this.loginFormGroup.group()
   }
 
   ngOnInit() {
@@ -28,6 +31,15 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.sendForm = true
+
+    if (this.group.valid) {
+      this.loginModel = new LoginModel(this.email.value, this.password.value)
+
+      this.loginService.login(this.loginModel).subscribe(
+        resp => { console.log('logado') }
+      )
+    }
+
   }
 
   showHideEyes() {

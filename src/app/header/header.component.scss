@@ -1,0 +1,9 @@
+.praxio-header {
+    position: absolute;
+    top: 0;
+    padding: 10px;
+
+    @media (max-width: 768px) {
+        position: relative;
+    }
+}
