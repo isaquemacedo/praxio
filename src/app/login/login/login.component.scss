@@ -1,9 +1,29 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content};
+  &:-moz-placeholder           {@content};
+  &::-moz-placeholder          {@content};
+  &:-ms-input-placeholder      {@content};
+}
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    height: 780px;
+    width: 1063px;
+    position: absolute;
+    bottom: -690px;
+    left: 200px;
+    right: 0;
+    background-image: url(../../../assets/png/bg-front.png);
+  }
 
   .wrapper {
     width: 310px;
@@ -29,8 +49,12 @@
           border: 1px solid #c2c2c2;
           border-radius: 6px;
           box-sizing: border-box;
-        }
 
+          @include placeholder {
+            color: #CAD0DC;
+          }
+        }
+        
         .errors {
           .error {
             color: red;

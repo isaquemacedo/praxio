@@ -14,7 +14,20 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 100%;
+  width: 100%;  
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    height: 780px;
+    width: 1063px;
+    position: absolute;
+    bottom: -720px;
+    left: 200px;
+    right: 0;
+    background-image: url(../../../assets/png/bg-front.png);
+  }
 
   @media (max-width: 768px) {
     height: auto;
@@ -165,6 +178,7 @@
       cursor: pointer;
       text-align: center;
       margin-top: 40px;
+      text-decoration: none;
     }
   }
 }

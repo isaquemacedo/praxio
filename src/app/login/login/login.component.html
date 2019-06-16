@@ -4,7 +4,7 @@
 
     <div class="login">
       <div class="group">
-        <input class="group-input" type="text" name="email" formControlName="email">
+        <input class="group-input" placeholder="Email" type="text" name="email" formControlName="email">
         
         <div [hidden]="!email.errors || !sendForm" class="errors">
           <div class="error" [hidden]="!email.errors?.required">Digite seu e-mail</div>
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="group">
-        <input class="group-input" type="password" name="password" formControlName="password" #psw>
+        <input class="group-input" placeholder="senha" type="password" name="password" formControlName="password" #psw>
         <div class="eye" (click)="showHideEyes()"></div>
 
         <div [hidden]="!password.errors || !sendForm" class="errors">
