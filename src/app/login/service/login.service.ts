@@ -6,12 +6,9 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class LoginService {
-
-  private headers = new Headers({ 'Content-Type': 'application/json' });
-
   constructor(private http: HttpClient) { }
 
   login(loginModel: LoginModel): Observable<any> {
-    return this.http.post(AppSettings.login,{"email": "alessandro@gmail.com","senha": "ale123"})
+    return this.http.post(AppSettings.login, loginModel)
   }
 }
